@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .search-box {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .apps-list {
+            list-style: none;
+            padding: 0;
+        }
+        .app-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            margin-bottom: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .app-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .download-button {
+            background-color: #007bff;
+            color: white;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        .download-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>App Store</h1>
+    <input type="text" class="search-box" placeholder="Search apps..." onkeyup="filterApps()">
+    <ul class="apps-list" id="appsList">
+        <li class="app-item" data-name="Music Player">
+            <span>ProxAlert</span>
+            <a href="ProxAlert.html" class="download-button">Download</a>
+        </li>
+        <li class="app-item" data-name="Photo Editor">
+            <span>coming soon</span>
+            <a href="#" class="download-button">Download</a>
+        </li>
+        <li class="app-item" data-name="File Manager">
+            <span>coming soon</span>
+            <a href="#" class="download-button">Download</a>
+        </li>
+        <li class="app-item" data-name="Weather App">
+            <span>coming soon</span>
+            <a href="#" class="download-button">Download</a>
+        </li>
+        <li class="app-item" data-name="Video Player">
+            <span>coming soon</span>
+            <a href="#" class="download-button">Download</a>
+        </li>
+    </ul>
+    <script>
+        function filterApps() {
+            let input = document.querySelector('.search-box').value.toLowerCase();
+            let apps = document.querySelectorAll('.app-item');
+            
+            apps.forEach(app => {
+                let name = app.getAttribute('data-name').toLowerCase();
+                app.style.display = name.includes(input) ? 'flex' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
